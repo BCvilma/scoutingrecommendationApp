@@ -1,0 +1,125 @@
+import pandas as pd
+import seaborn as sns
+import numpy as np
+data=pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2024.csv")
+data.head()
+data.shape
+data.describe()
+data.isnull().sum()
+sns.relplot(x='RAA' , y='Value' , data=data)
+
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+data['Value'] = data['Value'].str.replace('$', '', regex=False)
+data['Value'] = data['Value'].str.replace(',', '', regex=False)
+data['Value'] = data['Value'].astype(int)
+data.head()
+
+train=data.drop(['Rank','Player','Team','Salary','Value'], axis=1)
+test=data['Value']
+
+X_train, X_test , y_train , y_test=train_test_split(train,test,test_size=0.3,random_state=2)
+regr=LinearRegression()
+regr.fit(X_train,y_train)
+pred=regr.predict(X_test)
+pred
+regr.score(X_test,y_test)
+
+
+
+# Evaluate model performance
+mae = mean_absolute_error(y_test, pred)
+mse = mean_squared_error(y_test, pred)
+rmse = np.sqrt(mse)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("Root Mean Squared Error (RMSE):", rmse)
+print("R² score:", regr.score(X_test, y_test))
+
+# Visualize actual vs predicted values
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, pred, alpha=0.5)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--', linewidth=2)
+plt.xlabel('Actual Values')
+plt.ylabel('Predicted Values')
+plt.title('Actual vs Predicted Values')
+plt.show()
+
+new_data = pd.DataFrame({
+    'RAA': [269,296,-145],       
+    'Wins': [0.894,0.985,-0.482],     
+    'EFscore': [0.225,0.172,0.105]    
+})
+
+new_predictions = regr.predict(new_data)
+print("Predictions for new data:", new_predictions)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+data=pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2024.csv")
+data.head()
+data.shape
+data.describe()
+data.isnull().sum()
+sns.relplot(x='RAA' , y='Value' , data=data)
+
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+data['Value'] = data['Value'].str.replace('$', '', regex=False)
+data['Value'] = data['Value'].str.replace(',', '', regex=False)
+data['Value'] = data['Value'].astype(int)
+data.head()
+
+X=data.drop(['Rank','Player','Team','Salary','Value'], axis=1)
+y=data['Value']
+
+X_train, X_test , y_train , y_test=train_test_split(X,y,test_size=0.3,random_state=2)
+regr=LinearRegression()
+regr.fit(X_train,y_train)
+pred=regr.predict(X_test)
+pred
+regr.score(X_test,y_test)
+
+new_data = pd.DataFrame({
+    'RAA': [269,296,-145],       
+    'Wins': [0.894,0.985,-0.482],     
+    'EFscore': [0.225,0.172,0.105]    
+})
+
+new_predictions = regr.predict(new_data)
+print("Predictions for new data:", new_predictions)
+
+
+
+
+
+
