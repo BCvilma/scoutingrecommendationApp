@@ -26,11 +26,11 @@ if 'selected_player' not in st.session_state:
 df_player = pd.read_csv("RecommendationApp-App/IPL_22_23_BBB.csv")
 
 # Load additional CSV files
-df_2024 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2024.csv")
+df_2024 = pd.read_csv("RecommendationApp-App/playerperformance/player_rankings_2024.csv")
 df_2024['Year'] = 2024
-df_2023 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2023.csv")
+df_2023 = pd.read_csv("RecommendationApp-App/playerperformance/player_rankings_2023.csv")
 df_2023['Year'] = 2023
-df_2022 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2022.csv")
+df_2022 = pd.read_csv("RecommendationApp-App/playerperformance/player_rankings_2022.csv")
 df_2022['Year'] = 2022
 
 # Combine the dataframes
