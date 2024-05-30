@@ -161,3 +161,4 @@ urllib3
 yarl
 fuzzywuzzy
 matplotlib
+python-Levenshtein
