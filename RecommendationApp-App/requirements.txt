@@ -159,3 +159,4 @@ tzdata
 Unidecode
 urllib3
 yarl
+fuzzywuzzy
