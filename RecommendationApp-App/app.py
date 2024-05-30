@@ -460,7 +460,7 @@ if not allrounder_stat_df_clustered.empty and st.session_state.selected_player i
         plot_all_rounders_line_graph(similar_all_rounders_df)
 
 # Load the CSV file
-player_rankings_2024 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2024.csv")
+player_rankings_2024 = pd.read_csv("RecommendationApp-App/playerperformance/player_rankings_2024.csv")
 
 # Function to extract additional information for common names
 def extract_additional_info(df, role):
