@@ -23,14 +23,14 @@ st.markdown("<h1 style='text-align: center;'>Player Scouting Recommendation Syst
 if 'selected_player' not in st.session_state:
     st.session_state.selected_player = None
 
-df_player = pd.read_csv("IPL_22_23_BBB.csv")
+df_player = pd.read_csv("RecommendationApp-App/IPL_22_23_BBB.csv")
 
 # Load additional CSV files
-df_2024 = pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2024.csv")
+df_2024 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2024.csv")
 df_2024['Year'] = 2024
-df_2023 = pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2023.csv")
+df_2023 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2023.csv")
 df_2023['Year'] = 2023
-df_2022 = pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2022.csv")
+df_2022 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2022.csv")
 df_2022['Year'] = 2022
 
 # Combine the dataframes
@@ -460,7 +460,7 @@ if not allrounder_stat_df_clustered.empty and st.session_state.selected_player i
         plot_all_rounders_line_graph(similar_all_rounders_df)
 
 # Load the CSV file
-player_rankings_2024 = pd.read_csv("/Users/vilmaxavier/Desktop/ScoutingApp/playerperformance/player_rankings_2024.csv")
+player_rankings_2024 = pd.read_csv("/RecommendationApp-App/playerperformance/player_rankings_2024.csv")
 
 # Function to extract additional information for common names
 def extract_additional_info(df, role):
